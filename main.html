@@ -28,7 +28,7 @@
 <div id="formbox" class="container p-5 form-check form-switch d-flex align-items-center mb-3">
   <form id="newsletterForm">
     <h1 id="formtext">Report a water leak, or any problem.</h1><br>
-    <input id="name" type="text" class="form-control" placeholder="Enter Location of Problem" required>
+    <input id="location" type="text" class="form-control" placeholder="Enter Location of Problem" required>
     <h6 id="formtext"><span style="display: block; margin-top: 10px;">Enter the location correctly since the location is going to be sent to the authorities.</style></h6><b><br>
     <input type="file" class="form-control" id="fileInput" accept="image/*" multiple>
     <h6 id="formtext"><span style="display: block; margin-top: 10px;">Attach as many pictures of the problem as you want. Make sure the problem can be seen from the photos.</style></h6><b><br>
@@ -42,10 +42,7 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const address = document.getElementById('number').value;
-    const password = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
+    const name = document.getElementById('location').value;
     const agree = document.getElementById('agree').checked;
     
 
@@ -53,7 +50,7 @@
       alert('You must agree to the terms!');
       return;
     }
-    alert('Account log in successful!');
+    alert('Succesfully sent the photos to the authorized personals. It might take them a few minutes to reach the problem scene.');
     window.location.href = 'main.html?access=true';
   });
 </script>
