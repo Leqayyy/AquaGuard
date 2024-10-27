@@ -81,12 +81,12 @@
         alert('Logged in successfully!');
         window.location.href = 'main.html?Access=true';
       } else {
-        alert('Error logging in.');
+        throw new Error('Failed to submit data.');
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error logging in.');
+      alert('Error logging in. Please try again.');
     });
   });
 </script>
