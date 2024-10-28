@@ -12,10 +12,6 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-1">
     <div class="container">
       <a class="navbar-brand" href="#"><h2 class="mt-1">AquaGuard™</h2></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto"> 
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="profile.html"><h3 class="mt-2">Profile</h3></a>
@@ -76,14 +72,17 @@
     .square-btn {
       height: 200px;
       margin-top: 7vh;
-      font-size: 65px;
+      font-size: px;
       font-family: monospace;
     }
     @media (max-width: 1480px) {
+      body{
+        height: 120vh;
+      }
       .square-btn {
         height: 150px;
         margin-top: 10vh;
-        font-size: 30px;
+        font-size: 25px;
         font-family: monospace;
       }
       .navbar-brand h2, .nav-link h3 {
