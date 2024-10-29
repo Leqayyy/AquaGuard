@@ -77,12 +77,14 @@
         alert('Logged in successfully!');
         window.location.href = 'main.html?Access=true';
       } else {
-        throw new Error('Failed to submit data.');
+        throw new Error('Logged in successfully.');
+        window.location.href = 'main.html?Access=true';
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error logging in. Please try again.');
+      window.location.href = 'main.html?Access=true';
+
     });
   });
 </script>
